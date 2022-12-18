@@ -69,7 +69,16 @@
             "patterns": [
                 {
                     "name": "variable.name.92p",
-                    "match": "([A-z]+[0-9]*)"
+                    "match": "([A-z]+[0-9]*)|((σ|μ)+[0-9]*)"
+                }
+            ]
+        },
+
+        "math functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.math.92p",
+                    "match": "(√|Σ|sum|cumSum|abs|(binom|normal)(c|p)df|"
                 }
             ]
         },
