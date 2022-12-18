@@ -1,0 +1,89 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "92p",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#arithmetics"
+        }
+    ],
+
+    "repository": {
+        "control": {
+            "patterns": [
+                {
+                    "name": "keyword.control.92p",
+                    "match": "(If.+[^Then]|when|Pause|Return|Cycle|Stop|Exit|@|get.{1,5}|set.{1,5}",
+                    "begin": "(If.+Then)\\1|(For)\\2|(While)\\3|(Loop)\\4|(Custom)\\5",
+                    "end": "(EndIf)\\1|(EndFor)\\2|(EndWhile)\\3|(EndLoop)\\4|(EndCustm)\\5"
+                }
+            ]
+        },
+      
+        "i/o": {
+            "patterns": [
+                {
+                    "name": "keyword.other.io.92p",
+                    "match": "(Text|Request|PopUp|DropDown|Title|Item|Disp|Input|InputStr|Prompt|Output|getKey|Send|Get|SendCalc|GetCalc)",
+                    "begin": "(Dialog)\\1|(ToolBar)\\2",
+                    "end": "(EndDlog)\\1|(EndTBar)\\2"
+                }
+            ]
+        },
+
+        "var": {
+            "patterns": [
+                {
+                    "name": "keyword.other.var.92p",
+                    "match": "(Define|DelVar|Local)",
+                    "begin": "(Func)\\1|(Prgm)\\2",
+                    "end": "(EndFunc)\\1|(EndPrgm)\\2"
+                }
+            ]
+        },
+
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric",
+                    "match": "\\b(\\d+\\.?\\d*|\\.\\d+)\\b"
+                }
+            ]
+        },
+
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.name.92p",
+                    "match": "([A-z]+[0-9]*)"
+                }
+            ]
+        },
+
+        "arithmetics": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.arithmetic.92p",
+                    "match": "\\+|-|\\*|/|\\^|\\√\\((.*)\\)"
+                }
+            ]
+        }
+    },
+
+    "scopeName": "source.92p"
+}
+  

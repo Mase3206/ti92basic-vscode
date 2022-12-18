@@ -8,44 +8,73 @@
     "type": "git",
     "url": "https://github.com/beastmatser/ti-basic-autocomplete.git"
   },
+
   "publisher": "beastmatser",
   "categories": [],
   "keywords": [
     "multi-root ready"
   ],
+
   "engines": {
     "vscode": "^1.43.0"
   },
+
   "activationEvents": [
     "onLanguage:8xp"
   ],
+
   "main": "./client/out/extension",
   "contributes": {
     "languages": [
       {
-        "id": "8xp",
+        "id": "TI-89 BASIC",
         "aliases": [
           "8xp"
         ],
+
         "extensions": [
           ".8xp"
         ],
+
+        "configuration": "./language-configuration.json"
+      },
+      
+      {
+        "id": "TI-92 BASIC",
+        "aliases": [
+          "92p"
+        ],
+
+        "extensions": [
+          ".92p"
+        ],
+
         "configuration": "./language-configuration.json"
       }
     ],
+
     "grammars": [
       {
-        "language": "8xp",
+        "language": "TI-89 BASIC",
         "scopeName": "source.8xp",
         "path": "./syntaxes/8xp.tmLanguage.json"
+      },
+
+      {
+        "language": "TI-92 BASIC",
+        "scopeName": "source.92p",
+        "path": "./syntaxes/92p.tmLanguage.json"
       }
     ],
+
     "configuration": {
       "type": "object",
       "title": "LSP 8xp",
       "properties": {}
     }
+
   },
+
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -b",
@@ -54,6 +83,7 @@
     "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
     "test": "sh ./scripts/e2e.sh"
   },
+
   "devDependencies": {
     "@types/mocha": "^8.2.2",
     "@types/node": "^12.12.0",
